@@ -6,6 +6,8 @@ namespace TechJobs.Controllers
 {
     public class SearchController : Controller
     {
+
+
         public IActionResult Index()
         {
             ViewBag.columns = ListController.columnChoices;
@@ -19,6 +21,8 @@ namespace TechJobs.Controllers
         public IActionResult Results(string searchType, string searchTerm)
         {
             List<Dictionary<string, string>> results;
+
+           
 
             if (searchTerm is null)
             {
@@ -38,6 +42,7 @@ namespace TechJobs.Controllers
             
             ViewBag.jobs = results;
             ViewBag.columns = ListController.columnChoices;
+            ViewBag.lastSelected = searchType;
             return View("~/Views/Search/Index.cshtml");
 
             //return Content("SearchType: " + searchType + " " + searchTerm);
