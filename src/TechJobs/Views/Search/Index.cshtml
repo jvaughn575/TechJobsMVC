@@ -40,7 +40,7 @@
             @foreach (KeyValuePair<string, string> field in job)
             {
                 <tr>
-                    <td><b>@field.Key</b></td>
+                    <td><b>@(ViewBag.columns.ContainsKey(field.Key) ? ViewBag.columns[field.Key] : field.Key.Substring(0,1).ToUpper() + field.Key.Substring(1))</b></td>
                     <td>@field.Value</td>
                 </tr>
             }
