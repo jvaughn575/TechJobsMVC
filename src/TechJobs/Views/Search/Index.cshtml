@@ -33,30 +33,5 @@
     <h3>@ViewBag.jobs.Count Result(s)</h3>
 
     // TODO #2 - Loop over jobs dictionary and display all job fields 
-    @foreach (Dictionary<string, string> job in ViewBag.jobs)
-    {
-
-        <table class="job-listing">
-            @foreach (KeyValuePair<string, string> field in job)
-            {
-                <tr>
-                    <td><b>@(ViewBag.columns.ContainsKey(field.Key) ? ViewBag.columns[field.Key] : field.Key.Substring(0,1).ToUpper() + field.Key.Substring(1))</b></td>
-
-                    @if (field.Key != "name")
-                    {
-                    <td><a asp-controller="Search" 
-                           asp-action="Results" 
-                           asp-route-searchType="@field.Key" 
-                           asp-route-searchTerm="@field.Value"> @field.Value </a></td>
-                    }
-                    else
-                    {
-                        
-                        <td>@field.Value</td>
-                    }
-
-                </tr>
-            }
-        </table>
-    }
+    @Html.Partial("/Views/Partials/PartialJobs.cshtml")
 }

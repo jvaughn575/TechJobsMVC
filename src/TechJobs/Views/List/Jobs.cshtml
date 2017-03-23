@@ -4,20 +4,4 @@
 
 
 
-    @foreach (Dictionary<string, string> job in ViewBag.jobs)
-    {
-        // TODO #3 - Use the same list display from Views/Search/Index.cshtml 
-        <table class="job-listing">
-            @foreach (KeyValuePair<string, string> field in job)
-            {
-                
-
-                <tr>
-                    <td><b> @(field.Key.Substring(0, 1).ToUpper() + field.Key.Substring(1))</b></td>
-                    <td>@field.Value</td>
-                </tr>
-
-            }
-        </table>
-    }
-
+ @Html.Partial("/Views/Partials/PartialJobs.cshtml")   
