@@ -44,9 +44,8 @@ namespace TechJobs.Controllers
             ViewBag.columns = ListController.columnChoices;
             ViewBag.lastSelected = searchType;
             return View("~/Views/Search/Index.cshtml");
-
-            //return Content("SearchType: " + searchType + " " + searchTerm);
-            //return Content("You Found Me!");
+            
+            
         }
     }
 }

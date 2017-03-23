@@ -41,7 +41,20 @@
             {
                 <tr>
                     <td><b>@(ViewBag.columns.ContainsKey(field.Key) ? ViewBag.columns[field.Key] : field.Key.Substring(0,1).ToUpper() + field.Key.Substring(1))</b></td>
-                    <td>@field.Value</td>
+
+                    @if (field.Key != "name")
+                    {
+                    <td><a asp-controller="Search" 
+                           asp-action="Results" 
+                           asp-route-searchType="@field.Key" 
+                           asp-route-searchTerm="@field.Value"> @field.Value </a></td>
+                    }
+                    else
+                    {
+                        
+                        <td>@field.Value</td>
+                    }
+
                 </tr>
             }
         </table>

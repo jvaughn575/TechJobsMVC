@@ -10,10 +10,13 @@
         <table class="job-listing">
             @foreach (KeyValuePair<string, string> field in job)
             {
+                
+
                 <tr>
-                    <td><b>@field.Key</b></td>
+                    <td><b> @(field.Key.Substring(0, 1).ToUpper() + field.Key.Substring(1))</b></td>
                     <td>@field.Value</td>
                 </tr>
+
             }
         </table>
     }
